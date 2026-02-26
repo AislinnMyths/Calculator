@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="calculator">
+    <div class="operands"> 
+      <!--All the "data..." names are for use in JS, if there are many elements of the same type
+      (such as buttons) and you want to select them by function, not by identity; you can put 
+      whatever name you like, it doesn't need to be "data..."  -->
+      <div dataOperand1>0</div>
+      <div dataOperand2>0</div>
+    </div>
+
+    <div class="btnGrid">
+      <button dataClear>C</button>
+      <button dataDelete>⟵</button>
+      <button dataOperation>/</button>
+
+      <button dataNumber>7</button>
+      <button dataNumber>8</button>
+      <button dataNumber>9</button>
+      <button dataOperation>*</button>
+
+      <button dataNumber>4</button>
+      <button dataNumber>5</button>
+      <button dataNumber>6</button>
+      <button dataOperation>-</button>
+
+      <button dataNumber>1</button>
+      <button dataNumber>2</button>
+      <button dataNumber>3</button>
+      <button dataOperation>+</button>
+
+      <button dataNumber>0</button>
+      <button dataSign>+/-</button>
+      <button dataNumber>.</button>
+      <button dataEquals>=</button>
+    </div>
+
+    <div id="copy">
+      <h6>Made by Aislinn</h6>
+    </div>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>

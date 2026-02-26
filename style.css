@@ -1,0 +1,120 @@
+/**includes fonts in the css*/
+@font-face {
+  font-family: "Digital7";
+  src: url(Font/Digital\ 7/Digital7Mono-Yz9J4.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* width + height doesn't take in account padding + margin*/
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: cornflowerblue;
+}
+
+/**basics styles of the calculator*/
+#calculator {
+  background: linear-gradient(145deg, #483d8b, #3a2f6e);
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px 30px 0 30px;
+  border-radius: 20px;
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+    inset 0 5px 10px rgba(255, 255, 255, 0.1);
+}
+
+/**style of screen*/
+#calculator > .operands {
+  width: 100%;
+  padding: 20px;
+  text-align: right;
+  /* background-color acts as fallback if gradient is not supported */
+  background-color: rgb(203, 222, 135);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 70px;
+  font-family: "Digital7";
+  /* gradient overrides background-color in modern browsers */
+  background: linear-gradient(145deg, #d7f29d, #bcd877);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 6px rgba(255, 255, 255, 0.3);
+}
+
+#calculator > .operands > [dataOperand1] {
+  font-size: 40px;
+}
+
+/**grid for the buttons*/
+#calculator > .btnGrid {
+  display: grid;
+  /* 4 equal columns layout — if layout changes, update nth-child rules */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+/**style of buttons*/
+#calculator > .btnGrid > button {
+  padding: 15px;
+  background: linear-gradient(145deg, #f5f5dc, #d6d6c2);
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  /* 
+  The first shadow (0 6px 0) creates the solid base.
+  The second shadow adds soft depth.
+  Together with :active transform, this simulates a physical press.
+  */
+  box-shadow:
+    0 6px 0 #bdbdbd,
+    0 8px 15px rgba(0, 0, 0, 0.3);
+
+  transition: all 0.1s ease-in-out;
+}
+
+#calculator > .btnGrid > button:active {
+  /* 
+  translateY must match the visual reduction of the first shadow 
+  to keep the 3D illusion consistent.
+  */
+  transform: translateY(4px);
+  box-shadow:
+    0 2px 0 #bdbdbd,
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/**delete button take up 2 columns; this rule depends on button order in HTML*/
+#calculator > .btnGrid > button:nth-child(2) {
+  grid-column: span 2;
+}
+
+/**equal button style*/
+#calculator > .btnGrid > button:last-child {
+  background: linear-gradient(145deg, #a2f555, #7ecf2f);
+  box-shadow:
+    0 6px 0 #5aa61d,
+    0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#calculator > .btnGrid > button[dataSign] {
+  background-color: rgb(255, 200, 100);
+  border-color: rgb(220, 160, 50);
+}
+
+#copy {
+  font-size: 13px;
+  padding: 10px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
